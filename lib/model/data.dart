@@ -8,27 +8,27 @@ String DataModelsToJson(List<DataModels> data) =>
 
 class DataModels {
   DataModels({
-    required this.userId,
-    required this.id,
+/*     required this.userId,
+    required this.id, */
     required this.title,
     required this.body,
   });
-
+/* 
   int userId;
-  int id;
+  int id; */
   String title;
   String body;
 
   factory DataModels.fromJson(Map<String, dynamic> json) => DataModels(
-        userId: json["userId"],
-        id: json["id"],
+        /* userId: json["userId"],
+        id: json["id"], */
         title: json["title"],
         body: json["body"],
       );
 
   Map<String, dynamic> toJson() => {
-        "userId": userId,
-        "id": id,
+        /*      "userId": userId,
+        "id": id, */
         "title": title,
         "body": body,
       };

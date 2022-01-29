@@ -15,8 +15,8 @@ class _ViewScreenState extends State<ViewScreen> {
   List<DataModels> datas = [];
 
   Future<List<DataModels>> showJson() async {
-    final response =
-        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+    final response = await http.get(
+        Uri.parse('https://61f59dd762f1e300173c41ef.mockapi.io/api/posts'));
     if (response.statusCode == 200) {
       var jsonList = jsonDecode(response.body);
       for (var item in jsonList) {
@@ -44,7 +44,10 @@ class _ViewScreenState extends State<ViewScreen> {
               child: Column(children: [
                 ElevatedButton(
                   child: const Text('Show Data'),
-                  onPressed: showJson,
+                  onPressed: () async {
+                    await showJson();
+                    setState(() {});
+                  },
                   style: ElevatedButton.styleFrom(
                       fixedSize: const Size(300, 30),
                       primary: Colors.deepOrange),
@@ -58,7 +61,7 @@ class _ViewScreenState extends State<ViewScreen> {
                               margin: const EdgeInsets.all(10),
                               child: ListTile(
                                 leading: Text(
-                                  "${datas[index].id}",
+                                  "test",
                                   style: TextStyle(
                                     color: Colors.blue,
                                   ),
